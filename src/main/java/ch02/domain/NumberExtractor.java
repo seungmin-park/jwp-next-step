@@ -7,6 +7,16 @@ public class NumberExtractor {
     private static final String CUSTOM_SEPARATOR_PREFIX = "//";
     private static final String CUSTOM_SEPARATOR_SUFFIX = "\\n";
 
+    public String[] extractNumber(String inputNumber) {
+        if (containRestSeparator(inputNumber)) {
+            return inputNumber.split(REST_SEPARATOR);
+        }
+        if (containColonSeparator(inputNumber)) {
+            return inputNumber.split(COLON_SEPARATOR);
+        }
+
+        throw new IllegalArgumentException();
+    }
 
     private boolean containRestSeparator(String inputNumber) {
         if (inputNumber.contains(REST_SEPARATOR)) {
