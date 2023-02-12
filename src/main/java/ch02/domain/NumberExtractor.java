@@ -4,6 +4,8 @@ public class NumberExtractor {
 
     private static final String REST_SEPARATOR = ",";
     private static final String COLON_SEPARATOR = ":";
+    private static final String CUSTOM_SEPARATOR_PREFIX = "//";
+    private static final String CUSTOM_SEPARATOR_SUFFIX = "\\n";
 
 
     private boolean containSeparator(String inputNumber) {
@@ -17,7 +19,8 @@ public class NumberExtractor {
     }
 
     private boolean containCustomSeparator(String inputNumber) {
-        if (inputNumber.startsWith("//") && inputNumber.contains("\\n")) {
+        if (inputNumber.startsWith(CUSTOM_SEPARATOR_PREFIX) &&
+                inputNumber.contains(CUSTOM_SEPARATOR_SUFFIX)) {
             return true;
         }
         return false;
