@@ -15,4 +15,11 @@ public class NumberExtractor {
         }
         return false;
     }
+
+    private boolean containCustomSeparator(String inputNumber) {
+        if (inputNumber.startsWith("//") && inputNumber.contains("\\n")) {
+            return true;
+        }
+        return false;
+    }
 }
