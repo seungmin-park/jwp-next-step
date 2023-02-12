@@ -8,10 +8,14 @@ public class NumberExtractor {
     private static final String CUSTOM_SEPARATOR_SUFFIX = "\\n";
 
 
-    private boolean containSeparator(String inputNumber) {
+    private boolean containRestSeparator(String inputNumber) {
         if (inputNumber.contains(REST_SEPARATOR)) {
             return true;
         }
+        return false;
+    }
+
+    private boolean containColonSeparator(String inputNumber) {
         if (inputNumber.contains(COLON_SEPARATOR)) {
             return true;
         }
