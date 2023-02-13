@@ -1,32 +1,25 @@
 package ch02.domain;
 
+import java.util.StringTokenizer;
+
 public class NumberExtractor {
 
     private static final String REST_SEPARATOR = ",";
     private static final String COLON_SEPARATOR = ":";
+    private static final String BASIC_SEPARATOR = ",|:";
     private static final String CUSTOM_SEPARATOR_PREFIX = "//";
     private static final String CUSTOM_SEPARATOR_SUFFIX = "\\n";
 
     public String[] extractNumber(String inputNumber) {
-        if (containRestSeparator(inputNumber)) {
-            return inputNumber.split(REST_SEPARATOR);
+        if (containBasicSeparator(inputNumber)) {
+            return inputNumber.split(BASIC_SEPARATOR);
         }
-        if (containColonSeparator(inputNumber)) {
-            return inputNumber.split(COLON_SEPARATOR);
-        }
-
         throw new IllegalArgumentException();
     }
 
-    private boolean containRestSeparator(String inputNumber) {
-        if (inputNumber.contains(REST_SEPARATOR)) {
-            return true;
-        }
-        return false;
-    }
-
-    private boolean containColonSeparator(String inputNumber) {
-        if (inputNumber.contains(COLON_SEPARATOR)) {
+    private boolean containBasicSeparator(String inputNumber) {
+        if (inputNumber.contains(REST_SEPARATOR) ||
+                inputNumber.contains(COLON_SEPARATOR)) {
             return true;
         }
         return false;
