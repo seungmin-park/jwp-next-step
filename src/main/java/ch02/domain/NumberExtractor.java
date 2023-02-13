@@ -1,7 +1,5 @@
 package ch02.domain;
 
-import java.util.StringTokenizer;
-
 public class NumberExtractor {
 
     private static final String REST_SEPARATOR = ",";
@@ -23,6 +21,10 @@ public class NumberExtractor {
             return true;
         }
         return false;
+    }
+
+    public String extractCustomSeparator(String inputNumber) {
+        return inputNumber.split(String.join(CUSTOM_SEPARATOR_PREFIX, CUSTOM_SEPARATOR_PREFIX))[1];
     }
 
     private boolean containCustomSeparator(String inputNumber) {
