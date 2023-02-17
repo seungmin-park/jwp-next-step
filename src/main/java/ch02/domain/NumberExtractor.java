@@ -32,11 +32,8 @@ public class NumberExtractor {
     }
 
     private boolean containBasicSeparator(String inputNumber) {
-        if (inputNumber.contains(REST_SEPARATOR) ||
-                inputNumber.contains(COLON_SEPARATOR)) {
-            return true;
-        }
-        return false;
+        return inputNumber.contains(REST_SEPARATOR) ||
+                inputNumber.contains(COLON_SEPARATOR);
     }
 
     public String extractCustomSeparator(String inputNumber) {
@@ -44,10 +41,7 @@ public class NumberExtractor {
     }
 
     private boolean containCustomSeparator(String inputNumber) {
-        if (inputNumber.startsWith(CUSTOM_SEPARATOR_PREFIX) &&
-                inputNumber.contains(CUSTOM_SEPARATOR_SUFFIX)) {
-            return true;
-        }
-        return false;
+        return inputNumber.startsWith(CUSTOM_SEPARATOR_PREFIX) &&
+                inputNumber.contains(CUSTOM_SEPARATOR_SUFFIX);
     }
 }
