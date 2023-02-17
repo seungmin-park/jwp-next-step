@@ -2,7 +2,7 @@ package ch02.view;
 
 public class OutputView {
 
-    public void printResult(int result) {
-        System.out.println(result);
+    public static void printResult(int result) {
+        System.out.printf("결과: %d", result);
     }
 }
