@@ -1,20 +1,22 @@
 package ch02.domain;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Calculator {
 
-    public int add(String... numbers) {
-        return Arrays.stream(numbers)
-                .mapToInt(Integer::parseInt)
-                .filter(Calculator::validNegative)
-                .sum();
+    private final List<Integer> numbers;
+
+    public Calculator(String... numbers) {
+        this.numbers = Arrays.stream(numbers)
+                .map(Integer::parseInt)
+                .collect(Collectors.toList());
     }
 
-    private static boolean validNegative(int num) {
-        if (num < 0) {
-            throw new RuntimeException();
-        }
-        return true;
+    public int sum() {
+        return numbers.stream()
+                .mapToInt(i -> i)
+                .sum();
     }
 }
